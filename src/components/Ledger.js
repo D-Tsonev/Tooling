@@ -1,25 +1,27 @@
 function Ledger ({ records , reference }) {
+  //  getRef takes toolID as parameter 
   const getRef = (toolId)=>{
     let toolName = ''
+    // Looping through array of 5 tools  
     for (let i = 0; i < reference.length; i++){
-      if (toolId[0] === reference[i].id ) {
+      // toolId is object so need to conver it to String 
+      // console.log(typeof toolId)
+      // console.log(reference[0].id)
+      if (String(toolId) === reference[i].id ) {
         toolName = reference[i].fields['Tool Name']
       }
     }
-    
-
     return toolName
   }
 
-
+  //  Adding new key-value  to the array of 35 records and adding the toolName 
   records.forEach(record => {
-    // tools[getRef(record.fields['Tool Type'])].push(record)
     record.name = getRef(record.fields['Tool Type'])
   })
-
+  // console.log(records)
 
   // const hammers = records.filter(record => record.name === 'Hammer')
-  
+
   // if (hammers.length > 0){
   //   console.log(hammers[0].fields)
   // }
@@ -33,13 +35,17 @@ function Ledger ({ records , reference }) {
   // })
   // console.log(lostHammers)
 
+
+
+
   const handleCountLost = (tool) => {
+    // filter array with a tool passed as parameter and stored in const tools
+    //  example :  const hammers = records.filter(record => record.name === 'Hammer')
     const tools = records.filter(record => record.name === String(tool))
 
-    if (tools.length > 0){
-      console.log(tools[0].fields)
-    }
+    // create a counter 
     let lostTools = 0
+    // used forEach array method to count the same tool passed as param with status 'Lost'
     tools.forEach(tool=> {
       if ((tool.fields['Status']) === 'Lost') {
         lostTools++
@@ -47,29 +53,21 @@ function Ledger ({ records , reference }) {
     })
     return lostTools
   }
+  //  created handleCountAvailable to count the available tool passed as parameter 
+  const  handleCountAvailable = (tool) => {
+    const tools = records.filter(record => record.name === String(tool))
 
+    let availableTools = 0
+    tools.forEach(tool=> {
+      if ((tool.fields['Status']) === 'Available') {
+        availableTools++
+      }
+    })
+    return availableTools
+  }
+  console.log(handleCountAvailable('Hammer'))
   console.log(handleCountLost('Hammer'))
-  console.log(handleCountLost('Pliers'))
-  console.log(handleCountLost('Screwdriver'))
-  console.log(handleCountLost('Screwdriver'))
-  console.log(handleCountLost('Screws (1300pc)'))
-  console.log(handleCountLost('Screws (1300pc)'))
-  console.log(handleCountLost('Nails  (100pc)'))
-
   
-
-
-  //   let lostTools = 0
-  //   tools.forEach(tool=> {
-  //     if ((tool.fields['Status']) === 'Lost') {
-  //       lostTools++
-  //     }
-  //   })
-  //   console.log(lostTools)
-  
-  // }
-
-  // console.log(handleCount('hammer'))
   return (
     <div>
       {records.map(record => (
