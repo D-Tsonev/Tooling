@@ -4,10 +4,7 @@ function Tools ({ records }) {
     <div>
       {records.map(record => (
         <p key={records.id}>
-          {record.fields['Tool Name']} - {record.fileds}</p>
-          
-
-        
+          {record.fields['Tool Name']} - {record.id}</p>
       ))}
     </div>
   )

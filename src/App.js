@@ -3,7 +3,7 @@ import Airtable, { Record } from 'airtable'
 import Tools from './components/Tools'
 import Ledger from './components/Ledger'
 
- 
+
 const base = new Airtable({ apiKey: 'keyncFUb5i9MdlxsU' }).base('app5MyMq1VN6a1Zvu')
 
 
@@ -27,7 +27,10 @@ function App() {
       .eachPage((records, fetchNextPage)=>{
         setLedger(records)
         console.log(records)
-        console.log(records[1].fields['Asset Tag'].text)
+        console.log(records[0].fields['Asset Tag'].text)
+        console.log(records[0].fields['Tool Type'])
+      
+        
         fetchNextPage()
       })
       
@@ -36,15 +39,18 @@ function App() {
       .eachPage((records, fetchNextPage)=>{
         setTools(records)
         console.log(records)
-        console.log(records[1].fields['Tool Name'])
-        console.log(records[1].id)
+        console.log(records[0].fields['Tool Name'])
+        console.log(records[0].id)
         fetchNextPage()
       })
     
   },[])
 
+
   // const handleCount = () => {
-  //   if (record.fields['Status']) ==='lost' 
+  //   if ((record.fields['Status']) ==='Lost'.length ){
+    
+  //   }
   
 
   return (
@@ -55,7 +61,7 @@ function App() {
         : 
         <p>Loading...</p>}
       { ledger ?
-        <Ledger records={ledger} /> 
+        <Ledger records={ledger} reference={tools}/> 
         : 
         <p>Loading...</p>}
     </>
