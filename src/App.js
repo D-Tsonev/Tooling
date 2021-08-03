@@ -9,14 +9,7 @@ const base = new Airtable({ apiKey: 'keyncFUb5i9MdlxsU' }).base('app5MyMq1VN6a1Z
 
 
 function App() {
-  // React.useEffect(() => {
-  //   const getData = async () => {
-  //     const res = await fetch('/api/endpoint') // * <-- replace with your endpoint
-  //     const data = await res.json()
-  //     console.log(data)
-  //   }
-  //   getData()
-  // })
+  
   const [ledger,setLedger] = React.useState([])
   const [tools,setTools] = React.useState([])
 
@@ -61,7 +54,7 @@ function App() {
         : 
         <p>Loading...</p>}
       { ledger ?
-        <Ledger records={ledger} reference={tools}/> 
+        <Ledger records={ledger} reference={tools} /> 
         : 
         <p>Loading...</p>}
     </>
