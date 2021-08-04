@@ -1,16 +1,17 @@
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
-import Tools from './components/Tools'
-import Ledger from './components/Ledger'
-import base from './components/api'
 
+
+import Tools from './components/ProcurementTeam'
+import Ledger from './components/InstallationsTem'
+import Home from './components/common/Home'
+import base from './lib/api'
 
 
 
 function App() {
-  
   const [ledger,setLedger] = React.useState([])
   const [tools,setTools] = React.useState([])
-
 
   React.useEffect(()=>{
     base('Ledger')
@@ -36,22 +37,22 @@ function App() {
       })
     
   },[])
-
-
   return (
-    <>
-      <h1> Lost tools  </h1> 
-      { tools ?
-        <Tools records={tools} /> 
-        : 
-        <p>Loading...</p>}
-      { ledger ?
-        <Ledger records={ledger} reference={tools} /> 
-        : 
-        <p>Loading...</p>}
-    </>
+    <Router>
+      <Switch>
+        <Route exact path='/'> 
+          <Home />
+        </Route>
+        <Route path='/procurementteam'>
+          <Ledger records={ledger} reference={tools}/>
+        </Route>
+        <Route path='/installationsteam'>
+          <Tools records={tools}/>
+
+        </Route>
+      </Switch>
+    </Router>
   )
-  
 }
 
 export default App

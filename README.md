@@ -1,3 +1,10 @@
+When I have a good look on the task  I started to with whiteboarding whiteboard.
+
+In my whiteboard I tryied to visialise y
+
+
+
+
 
 ## Update the Proxy Server
 

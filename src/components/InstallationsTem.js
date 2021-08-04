@@ -81,14 +81,11 @@ function Ledger ({ records , reference }) {
   
   console.log(handleRestock('Hammer'))
 
-
-
-
   return (
     <div>
       {records.map(record => (
         <p key={records.id}> {record.fields['Asset Tag'].text} - {getRef(record.fields['Tool Type'])} -
-          {record.fields['Status']}-  </p>
+          {record.fields['Status']}- </p>
 
       ))}
     </div>

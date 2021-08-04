@@ -7,6 +7,7 @@ function Tools ({ records }) {
           {record.fields['Tool Name']} - {record.id}</p>
       ))}
     </div>
+    
   )
 }
 export default Tools
