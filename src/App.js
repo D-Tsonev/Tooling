@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import Airtable, { Record } from 'airtable'
 import Tools from './components/Tools'
 import Ledger from './components/Ledger'
+import base from './components/api'
 
-
-const base = new Airtable({ apiKey: 'keyncFUb5i9MdlxsU' }).base('app5MyMq1VN6a1Zvu')
 
 
 
@@ -39,12 +37,6 @@ function App() {
     
   },[])
 
-
-  // const handleCount = () => {
-  //   if ((record.fields['Status']) ==='Lost'.length ){
-    
-  //   }
-  
 
   return (
     <>

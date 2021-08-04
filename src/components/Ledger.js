@@ -67,7 +67,23 @@ function Ledger ({ records , reference }) {
   }
   console.log(handleCountAvailable('Hammer'))
   console.log(handleCountLost('Hammer'))
+
+
+
+  const handleRestock = (tool)=> {
+    if ((tool === 'Hammer') && (handleCountAvailable('Hammer') >= 2 )) {
+      return 'You need to restock Hammer'
+    } 
+    if ((tool === 'Screwdriver') && (handleCountAvailable('Screwdriver') >= 5)) {
+      return 'You need to  Screwdriver'
+    } 
+  }
   
+  console.log(handleRestock('Hammer'))
+
+
+
+
   return (
     <div>
       {records.map(record => (
