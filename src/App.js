@@ -3,10 +3,9 @@ import React, { useState, useEffect } from 'react'
 
 
 import Tools from './components/ProcurementTeam'
-import Ledger from './components/InstallationsTem'
+import InstallationsTeam from './components/InstallationsTeam'
 import Home from './components/common/Home'
 import base from './lib/api'
-
 
 
 function App() {
@@ -21,7 +20,6 @@ function App() {
         console.log(records)
         console.log(records[0].fields['Asset Tag'].text)
         console.log(records[0].fields['Tool Type'])
-      
         
         fetchNextPage()
       })
@@ -44,11 +42,10 @@ function App() {
           <Home />
         </Route>
         <Route path='/procurementteam'>
-          <Ledger records={ledger} reference={tools}/>
+          <Tools records={tools}/>
         </Route>
         <Route path='/installationsteam'>
-          <Tools records={tools}/>
-
+          <InstallationsTeam records={ledger} reference={tools}/>
         </Route>
       </Switch>
     </Router>
