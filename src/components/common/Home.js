@@ -12,10 +12,15 @@ function Home() {
   return (
     
     <>
+      <br/>
+      <br/>
+      <section className="hero">
+        <div className="hero-body">
+          <h1 className="title has-text-centered"> Please select team </h1>
+        </div>
+      </section>
       <br/><br/>
-      <div className="box">
-        <h1>Please select team </h1>
-        <br/><br/>
+      <div>
         <Link to='/installationsteam'>
           <button className="button is-fullwidth">Instalation team</button>
         </Link>

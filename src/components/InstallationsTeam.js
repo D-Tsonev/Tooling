@@ -79,25 +79,46 @@ function InstallationsTeam ({ records , reference }) {
   return (
     <div>
       <div>
-        <button onClick={handleBack}> Back </button>
-        <h1> Lost Tools Total </h1>
-        <p> Hammers - {handleCountLost('Hammer')} </p>
-        <p> Pliers - {handleCountLost('Pliers')} </p>
-        <p> Screwdriver - {handleCountLost('Screwdriver')} </p>
-        <p> Screws (1300pc) - {handleCountLost('Screws (1300pc)')} </p>
-        <p> Nails (100pc) - {handleCountLost('Nails  (100pc)')} </p>
+        
+        <button className="button is-fullwidth" onClick={handleBack}> Back </button>
+        <br/>
+        <br/>
+        <section className="hero is-small">
+          <div className="hero-body">
+            <h1 className="title has-text-centered"> Lost Tools</h1>
+          </div>
+        </section>
+        <br/>
+        <br/>
+        <div className="box is-dark">
+          <div className="box has-text-centered ">
+            <h1> Lost Tools Summary </h1>
+            <hr/>
+            <p> Hammers - {handleCountLost('Hammer')} </p>
+            <p> Pliers - {handleCountLost('Pliers')} </p>
+            <p> Screwdriver - {handleCountLost('Screwdriver')} </p>
+            <p> Screws (1300pc) - {handleCountLost('Screws (1300pc)')} </p>
+            <p> Nails (100pc) - {handleCountLost('Nails  (100pc)')} </p>
+          </div>
+
+          <div className="box is-half has-text-centered">
+            <h1> Lost Tools Detail View  </h1>
+            <hr/>
+            {lost.map(lost => (
+              <p key={lost.id}> {lost.fields['Asset Tag'].text} - {getRef(lost.fields['Tool Type'])} -
+                {lost.fields['Status']} </p>
+
+            ))}
+    
+          </div>
+
+        </div>
+        
 
       </div>
 
       <div>
-
-        <h1> Lost Tools Detail View  </h1>
-
-        {lost.map(lost => (
-          <p key={lost.id}> {lost.fields['Asset Tag'].text} - {getRef(lost.fields['Tool Type'])} -
-            {lost.fields['Status']} </p>
-
-        ))}
+        
       </div>
     </div>
 
