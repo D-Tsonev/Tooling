@@ -90,9 +90,9 @@ function InstallationsTeam ({ records , reference }) {
         </section>
         <br/>
         <br/>
-        <div className="box is-dark">
-          <div className="box has-text-centered ">
-            <h1> Lost Tools Summary </h1>
+        <div className='box is-dark'>
+          <div className='box has-text-centered '>
+            <h1 className="subtitle is-3"> Lost Tools Summary </h1>
             <hr/>
             <p> Hammers - {handleCountLost('Hammer')} </p>
             <p> Pliers - {handleCountLost('Pliers')} </p>
@@ -102,7 +102,7 @@ function InstallationsTeam ({ records , reference }) {
           </div>
 
           <div className="box is-half has-text-centered">
-            <h1> Lost Tools Detail View  </h1>
+            <h1 className="subtitle is-3">  Lost Tools Detail View  </h1>
             <hr/>
             {lost.map(lost => (
               <p key={lost.id}> {lost.fields['Asset Tag'].text} - {getRef(lost.fields['Tool Type'])} -
