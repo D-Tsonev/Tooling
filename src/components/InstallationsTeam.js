@@ -1,12 +1,14 @@
 import { useHistory } from 'react-router'
 
 function InstallationsTeam ({ records , reference }) {
-  const history = useHistory()
+  
 
   //* Back button handler
+  const history = useHistory()
   function handleBack(){
     history.push('')
   }
+
   //*  getRef takes toolID as parameter 
   const getRef = (toolId)=>{
     let toolName = ''
@@ -27,7 +29,7 @@ function InstallationsTeam ({ records , reference }) {
     record.name = getRef(record.fields['Tool Type'])
   })
   
-  const handleCountLost = (tool) => {
+  const handleLostCount = (tool) => {
     //* filter array with a tool passed as parameter and stored in const tools
     //* example :  const hammers = records.filter(record => record.name === 'Hammer')
     const tools = records.filter(record => record.name === String(tool))
@@ -49,7 +51,7 @@ function InstallationsTeam ({ records , reference }) {
   
     
   // Tests: 
-  // console.log(handleCountLost('Hammer'))
+  // console.log(handleLostCount('Hammer'))
   // console.log(lost)
 
 
@@ -70,17 +72,19 @@ function InstallationsTeam ({ records , reference }) {
           <div className='box has-text-centered '>
             <h1 className="subtitle is-3"> Lost Tools Summary </h1>
             <hr/>
-            <p> Hammers - {handleCountLost('Hammer')} </p>
-            <p> Pliers - {handleCountLost('Pliers')} </p>
-            <p> Screwdriver - {handleCountLost('Screwdriver')} </p>
-            <p> Screws (1300pc) - {handleCountLost('Screws (1300pc)')} </p>
-            <p> Nails (100pc) - {handleCountLost('Nails  (100pc)')} </p>
+            <p> Hammers - {handleLostCount('Hammer')} </p>
+            <p> Pliers - {handleLostCount('Pliers')} </p>
+            <p> Screwdriver - {handleLostCount('Screwdriver')} </p>
+            <p> Screws (1300pc) - {handleLostCount('Screws (1300pc)')} </p>
+            <p> Nails (100pc) - {handleLostCount('Nails  (100pc)')} </p>
           </div>
           <div className="box is-half has-text-centered">
             <h1 className="subtitle is-3">  Lost Tools Detail View  </h1>
             <hr/>
             {lost.map(lost => (
-              <p key={lost.id}>Asset tag- {lost.fields['Asset Tag'].text} - {getRef(lost.fields['Tool Type'])} -
+              <p key={lost.id}>Asset tag- 
+                {lost.fields['Asset Tag'].text} - 
+                {getRef(lost.fields['Tool Type'])} -
                 {lost.fields['Status']} </p>
             ))}
           </div>

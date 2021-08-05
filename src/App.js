@@ -19,9 +19,11 @@ function App() {
       .select({ view: 'Grid view' })
       .eachPage((records, fetchNextPage)=>{
         setLedger(records)
-        console.log(records)
-        console.log(records[0].fields['Asset Tag'].text)
-        console.log(records[0].fields['Tool Type'])
+
+        // Tests : 
+        // console.log(records)
+        // console.log(records[0].fields['Asset Tag'].text)
+        // console.log(records[0].fields['Tool Type'])
         
         fetchNextPage()
       })
@@ -30,9 +32,11 @@ function App() {
       .select({ view: 'Grid view' })
       .eachPage((records, fetchNextPage)=>{
         setTools(records)
-        console.log(records)
-        console.log(records[0].fields['Tool Name'])
-        console.log(records[0].id)
+        
+        // Tests : 
+        // console.log(records)
+        // console.log(records[0].fields['Tool Name'])
+        // console.log(records[0].id)
         fetchNextPage()
       })
     
