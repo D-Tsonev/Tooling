@@ -1,17 +1,19 @@
+import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import React, { useState, useEffect } from 'react'
 
-
-import Tools from './components/ProcurementTeam'
+import ProcurementTeam from './components/ProcurementTeam'
 import InstallationsTeam from './components/InstallationsTeam'
+
 import Home from './components/common/Home'
 import base from './lib/api'
 
 
 function App() {
+  // * I used to useState react Hook to fetch and set data with initial value of []
   const [ledger,setLedger] = React.useState([])
   const [tools,setTools] = React.useState([])
-
+  // * After I have a good look at the Airtale doccumentattion
+  //* I followed the patern using useEffect Hook * to fetch the data 
   React.useEffect(()=>{
     base('Ledger')
       .select({ view: 'Grid view' })
@@ -41,8 +43,9 @@ function App() {
         <Route exact path='/'> 
           <Home />
         </Route>
+        {/* Here I created two paths and passed the data to records and reference */}
         <Route path='/procurementteam'>
-          <Tools records={tools}/>
+          <ProcurementTeam records={ledger} reference={tools}/>
         </Route>
         <Route path='/installationsteam'>
           <InstallationsTeam records={ledger} reference={tools}/>

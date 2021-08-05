@@ -22,7 +22,7 @@ function InstallationsTeam ({ records , reference }) {
     return toolName
   }
 
-  //*  Adding new key-value  to the array of 35 records and adding the toolName 
+  //*  Adding new key to the array of 35 records and adding the toolName 
   records.forEach(record => {
     record.name = getRef(record.fields['Tool Type'])
   })
@@ -72,14 +72,13 @@ function InstallationsTeam ({ records , reference }) {
     
   // Tests: 
   // console.log(handleCountAvailable('Hammer'))
-  // console.log(handleCountLost('Hammer'))
-  // console.log(handleRestock('Hammer'))
+  console.log(handleCountLost('Hammer'))
+  console.log(handleRestock('Hammer'))
 
 
   return (
     <div>
       <div>
-        
         <button className="button is-fullwidth" onClick={handleBack}> Back </button>
         <br/>
         <br/>
@@ -105,18 +104,13 @@ function InstallationsTeam ({ records , reference }) {
             <h1 className="subtitle is-3">  Lost Tools Detail View  </h1>
             <hr/>
             {lost.map(lost => (
-              <p key={lost.id}> {lost.fields['Asset Tag'].text} - {getRef(lost.fields['Tool Type'])} -
+              <p key={lost.id}>Asset tag- {lost.fields['Asset Tag'].text} - {getRef(lost.fields['Tool Type'])} -
                 {lost.fields['Status']} </p>
 
             ))}
-    
           </div>
-
         </div>
-        
-
       </div>
-
       <div>
         
       </div>

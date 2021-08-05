@@ -27,20 +27,9 @@ function Home() {
         <br/>
         <br/>
         < Link to='/procurementteam'>
-          <button className="button is-fullwidth">Procupation team</button>
+          <button className="button is-fullwidth">Procurement team</button>
         </Link>
       </div>
-      {/* { tools ?
-        <Tools records={tools} /> 
-        : 
-        <p>Loading...</p>}
-      { ledger ?
-        <Ledger records={ledger} reference={tools} /> 
-      
-        : 
-        <p>Loading...</p>} */}
-
-        
     </>
   )
   
