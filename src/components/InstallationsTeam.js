@@ -42,38 +42,15 @@ function InstallationsTeam ({ records , reference }) {
     })
     return lostTools
   }
-  //*  created handleCountAvailable to count the available tool passed as parameter 
-  const  handleCountAvailable = (tool) => {
-    const tools = records.filter(record => record.name === String(tool))
-
-    let availableTools = 0
-    tools.forEach(tool=> {
-      if ((tool.fields['Status']) === 'Available') {
-        availableTools++
-      }
-    })
-    return availableTools
-  }
   
-
-  const handleRestock = (tool)=> {
-    if ((tool === 'Hammer') && (handleCountAvailable('Hammer') >= 2 )) {
-      return 'You need to restock Hammer'
-    } 
-    if ((tool === 'Screwdriver') && (handleCountAvailable('Screwdriver') >= 5)) {
-      return 'You need to  Screwdriver'
-    } 
-  }
-
-  //*  Here I filtered array of records with status "Lost" I
+  //*  I filtered array of records with status "Lost" I
   //* , stored them in const lost so I can use my new Array of lost tools in the JSX
   const lost = records.filter(record => record.fields['Status'] === 'Lost') 
-  // console.log(lost)
+  
     
   // Tests: 
-  // console.log(handleCountAvailable('Hammer'))
-  console.log(handleCountLost('Hammer'))
-  console.log(handleRestock('Hammer'))
+  // console.log(handleCountLost('Hammer'))
+  // console.log(lost)
 
 
   return (
@@ -99,20 +76,17 @@ function InstallationsTeam ({ records , reference }) {
             <p> Screws (1300pc) - {handleCountLost('Screws (1300pc)')} </p>
             <p> Nails (100pc) - {handleCountLost('Nails  (100pc)')} </p>
           </div>
-
           <div className="box is-half has-text-centered">
             <h1 className="subtitle is-3">  Lost Tools Detail View  </h1>
             <hr/>
             {lost.map(lost => (
               <p key={lost.id}>Asset tag- {lost.fields['Asset Tag'].text} - {getRef(lost.fields['Tool Type'])} -
                 {lost.fields['Status']} </p>
-
             ))}
           </div>
         </div>
       </div>
-      <div>
-        
+      <div>   
       </div>
     </div>
 

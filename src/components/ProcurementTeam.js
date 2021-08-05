@@ -7,7 +7,7 @@ function ProcurementTeam ({ records , reference }) {
     history.push('')
   }
 
-
+  // *  created handleCountAvailable to count the available tool passed as parameter 
   const  handleCountAvailable = (tool) => {
     const tools = records.filter(record => record.name === String(tool))
 
@@ -20,7 +20,7 @@ function ProcurementTeam ({ records , reference }) {
     return availableTools
   }
   
-
+  // *  created handleRestock to count the tools need to be reordered
   const handleRestock = (tool)=> {
     if ((tool === 'Hammer') && (handleCountAvailable('Hammer') <= 2 )) {
       return 'You need to restock Hammer'
@@ -38,6 +38,9 @@ function ProcurementTeam ({ records , reference }) {
       return 'You need to restock Nails  (100pc)'
     } 
   }
+  // Tests:
+  // console.log(handleCountAvailable('Hammer')
+  // console.log(handleRestock('Hammer'))
 
   return (
     <div>
@@ -48,7 +51,6 @@ function ProcurementTeam ({ records , reference }) {
         <div className="hero-body">
           <h1 className="title has-text-centered"> Reorder Levels</h1>
         </div>
-        
       </section>
       <br/>
       <br/>
@@ -59,18 +61,23 @@ function ProcurementTeam ({ records , reference }) {
           {reference.map(tool => (
             <p key={tool.id}>
               {tool.fields['Tool Name']} -   
-          Minimum Stock Level - {tool.fields['Restock Count']}</p>
+              Minimum Stock Level - {tool.fields['Restock Count']}</p>
           ))}
         </div>
       </div>
       <div className="box is-half has-text-centered">
-        <h1 className="subtitle is-3">  Available Tools And Order Recommendations   </h1>
+        <h1 className="subtitle is-3">  Available Tools And Order Recommendations</h1>
         <hr/>
-        <p>Available Hammers- {handleCountAvailable('Hammer')} {handleRestock('Hammer')}</p>
-        <p>Available Pliers- {handleCountAvailable('Pliers')} {handleRestock('Pliers')}</p>
-        <p>Available Screwdriver- {handleCountAvailable('Screwdriver')} {handleRestock('Screwdriver')}</p>
-        <p>Available Screws (1300pc)- {handleCountAvailable('Screws (1300pc)')} {handleRestock('Screws (1300pc)')}</p>
-        <p>Available Nails  (100pc)- {handleCountAvailable('Nails  (100pc)')} {handleRestock('Nails  (100pc)')}</p>
+        <p>Available Hammers- 
+          {handleCountAvailable('Hammer')} {handleRestock('Hammer')}</p>
+        <p>Available Pliers- 
+          {handleCountAvailable('Pliers')} {handleRestock('Pliers')}</p>
+        <p>Available Screwdriver- 
+          {handleCountAvailable('Screwdriver')} {handleRestock('Screwdriver')}</p>
+        <p>Available Screws (1300pc)-
+          {handleCountAvailable('Screws (1300pc)')} {handleRestock('Screws (1300pc)')}</p>
+        <p>Available Nails  (100pc)- 
+          {handleCountAvailable('Nails  (100pc)')} {handleRestock('Nails  (100pc)')}</p>
       </div>
     </div>
 

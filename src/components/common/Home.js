@@ -1,14 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-// import Tools from '../Tools'
-// import Ledger from '../Ledger'
 
-
-
-
+// * Home function return two buttons link to the paths created in App.js
 function Home() {
-  
-
   return (
     
     <>
