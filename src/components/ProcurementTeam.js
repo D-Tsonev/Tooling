@@ -1,8 +1,9 @@
 import { useHistory } from 'react-router'
 
 function ProcurementTeam ({ records , reference }) {
-  const history = useHistory()
+  
   //* Back button handler
+  const history = useHistory()
   function handleBack(){
     history.push('')
   }
@@ -69,15 +70,25 @@ function ProcurementTeam ({ records , reference }) {
         <h1 className="subtitle is-3">  Available Tools And Order Recommendations</h1>
         <hr/>
         <p>Available Hammers- 
-          {handleCountAvailable('Hammer')} {handleRestock('Hammer')}</p>
+          {handleCountAvailable('Hammer')} 
+          {handleRestock('Hammer')}
+        </p>
         <p>Available Pliers- 
-          {handleCountAvailable('Pliers')} {handleRestock('Pliers')}</p>
+          {handleCountAvailable('Pliers')}
+          {handleRestock('Pliers')}
+        </p>
         <p>Available Screwdriver- 
-          {handleCountAvailable('Screwdriver')} {handleRestock('Screwdriver')}</p>
+          {handleCountAvailable('Screwdriver')} 
+          {handleRestock('Screwdriver')}
+        </p>
         <p>Available Screws (1300pc)-
-          {handleCountAvailable('Screws (1300pc)')} {handleRestock('Screws (1300pc)')}</p>
+          {handleCountAvailable('Screws (1300pc)')} 
+          {handleRestock('Screws (1300pc)')}
+        </p>
         <p>Available Nails  (100pc)- 
-          {handleCountAvailable('Nails  (100pc)')} {handleRestock('Nails  (100pc)')}</p>
+          {handleCountAvailable('Nails  (100pc)')} 
+          {handleRestock('Nails  (100pc)')}
+        </p>
       </div>
     </div>
 

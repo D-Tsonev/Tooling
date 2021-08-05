@@ -24,7 +24,7 @@ function InstallationsTeam ({ records , reference }) {
     return toolName
   }
 
-  //*  Adding a new key to the array of 35 records and adding the toolName 
+  //*  Adding a new key to the array of records and adding the toolName 
   records.forEach(record => {
     record.name = getRef(record.fields['Tool Type'])
   })
