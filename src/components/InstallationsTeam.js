@@ -10,9 +10,9 @@ function InstallationsTeam ({ records , reference }) {
   //*  getRef takes toolID as parameter 
   const getRef = (toolId)=>{
     let toolName = ''
-    //* Looping through array of 5 tools  
+    //* Looping through an array of 5 tools  
     for (let i = 0; i < reference.length; i++){
-      //* toolId is object so need to conver it to String 
+      //* toolId is an object so need to convert it to a String 
       // console.log(typeof toolId)
       // console.log(reference[0].id)
       if (String(toolId) === reference[i].id ) {
@@ -22,7 +22,7 @@ function InstallationsTeam ({ records , reference }) {
     return toolName
   }
 
-  //*  Adding new key to the array of 35 records and adding the toolName 
+  //*  Adding a new key to the array of 35 records and adding the toolName 
   records.forEach(record => {
     record.name = getRef(record.fields['Tool Type'])
   })
@@ -32,7 +32,7 @@ function InstallationsTeam ({ records , reference }) {
     //* example :  const hammers = records.filter(record => record.name === 'Hammer')
     const tools = records.filter(record => record.name === String(tool))
 
-    //* create a counter 
+    //* created a counter 
     let lostTools = 0
     //* used forEach array method to count the same tool passed as param with status 'Lost'
     tools.forEach(tool=> {
@@ -43,7 +43,7 @@ function InstallationsTeam ({ records , reference }) {
     return lostTools
   }
   
-  //*  I filtered array of records with status "Lost" I
+  //*  I filtered an array of records with the status "Lost" I
   //* , stored them in const lost so I can use my new Array of lost tools in the JSX
   const lost = records.filter(record => record.fields['Status'] === 'Lost') 
   

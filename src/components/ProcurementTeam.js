@@ -7,7 +7,7 @@ function ProcurementTeam ({ records , reference }) {
     history.push('')
   }
 
-  // *  created handleCountAvailable to count the available tool passed as parameter 
+  // *  Created handleCountAvailable to count the available tool passed as a parameter 
   const  handleCountAvailable = (tool) => {
     const tools = records.filter(record => record.name === String(tool))
 
@@ -20,7 +20,7 @@ function ProcurementTeam ({ records , reference }) {
     return availableTools
   }
   
-  // *  created handleRestock to count the tools need to be reordered
+  // *  Created handleRestock to count the that tools need to be reordered
   const handleRestock = (tool)=> {
     if ((tool === 'Hammer') && (handleCountAvailable('Hammer') <= 2 )) {
       return 'You need to restock Hammer'

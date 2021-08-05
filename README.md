@@ -1,7 +1,7 @@
 ## Overview
 
-After I recieved the task and analised that the objective is 
-that we order tools on right time and also to keep track on lost tools.
+After I received the task and analysed that the objective is 
+that we order tools at right time and also to keep track of lost tools.
 
 ## The Brief
 We need to create a simple internal microsite that uses the Airtable API to show us:
@@ -12,7 +12,7 @@ This microsite will be used by two separate teams:
 * The Installations Installations team, to track down any tools lost by Engineers
 
 
-When I have a good look on the task  I started with whiteboarding.
+When I have a good look at the task  I started with whiteboarding.
 
 <img src= './src/assest/tooling.png'  />
 
@@ -36,7 +36,7 @@ When I have a good look on the task  I started with whiteboarding.
 
 ## General Approach & Planning
 
-After reading the Airtable documentattion and generating api key I stored the key in .env file.
+After reading the Airtable documentation and generating the API key I stored the key in the .env file.
 Then I created const <code>base</code> that I used later to fetch the data.
 ```js 
 const API_KEY = process.env.REACT_APP_API_KEY

@@ -9,11 +9,11 @@ import base from './lib/api'
 
 
 function App() {
-  // * I used to useState react Hook to fetch and set data with initial value of []
+  // * I used to useState react Hook to fetch and set data with an initial value of []
   const [ledger,setLedger] = React.useState([])
   const [tools,setTools] = React.useState([])
-  // * After I have a good look at the Airtale doccumentattion
-  //* I followed the patern using useEffect Hook * to fetch the data 
+  // * After I have a good look at the Airtable documentation
+  //* I followed the pattern using useEffect Hook * to fetch the data 
   React.useEffect(()=>{
     base('Ledger')
       .select({ view: 'Grid view' })
